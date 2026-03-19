@@ -1,0 +1,240 @@
+:root {
+    --azul-oscuro: #0a0a23;
+    /* Un degradado más suave y moderno para superponer a las fotos */
+    --azul-gradient-superposicion: linear-gradient(180deg, rgba(26, 35, 126, 0.35), rgba(0, 0, 0, 0.9));
+    --blanco: #ffffff;
+    --dorado: #c5a059;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: var(--blanco);
+    line-height: 1.6;
+}
+
+/* --- NUEVO: ESTILO PARA EL CONTENEDOR DEL LOGO --- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el logo y el texto */
+    text-decoration: none; /* Si lo haces un enlace luego */
+    color: white;
+}
+
+.logo-img {
+    height: 40px; /* Ajusta este valor según el tamaño de tu logo */
+    width: auto; /* Mantiene la proporción */
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centra verticalmente logo y links */
+    padding: 20px 5%;
+    background: #000;
+    border-bottom: 1px solid #222; /* Línea sutil de separación */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--dorado); /* Efecto hover */
+}
+
+/* --- MODIFICADO: HERO CON IMAGEN Y DEGRADADO SUPERPUESTO --- */
+.hero {
+    height: 450px; /* Un poco más alto para que luzca la foto */
+    /* Mezcla de imagen y degradado */
+    background-image: var(--azul-gradient-superposicion), url('Principal\ Papa.png');
+    background-size: cover; /* Cubre todo el espacio */
+    background-position: center; /* Centra la foto */
+    background-repeat: no-repeat;
+    
+    margin: 20px 5%;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--dorado);
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+/* Cards Container */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 50px 5%;
+}
+
+/* --- MODIFICADO: ESTILO BASE DE LAS CARDS PARA IMÁGENES --- */
+.card {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 380px; /* Un poco más alto */
+    border-radius: 15px;
+    display: flex;
+    align-items: flex-end; /* Texto al fondo */
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Para la superposición */
+    overflow: hidden; /* Mantiene el degradado dentro */
+    text-decoration: none; /* Si las haces enlaces */
+    color: white;
+}
+
+/* --- NUEVO: SUPERPOSICIÓN DEGRADADA PARA CADA CARD --- */
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradado oscuro en la base para que el texto sea legible */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    z-index: 1; /* Detrás del texto, delante de la imagen */
+}
+
+/* --- NUEVO: CLASES ESPECÍFICAS PARA LAS FOTOS DE LAS CARDS --- */
+.card-oratoria-1 { background-image: url('oratoria.png'); }
+.card-ventas { background-image: url('ventas.png'); }
+.card-oratoria-2 { background-image: url('arte.png'); }
+
+.card:hover { 
+    transform: translateY(-5px); /* Efecto de levitación moderno */
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Sombra suave */
+}
+
+/* --- NUEVO: AJUSTE DE Z-INDEX PARA EL TEXTO DE LA CARD --- */
+.card h3 {
+    margin: 0;
+    padding: 20px;
+    z-index: 2; /* Texto siempre al frente */
+}
+
+.card h3 span { 
+    display: block; 
+    font-size: 1.8rem; 
+    font-weight: bold; 
+}
+
+/* Sección Blanca (CTA) */
+.cta {
+    background-color: #f4f4f4;
+    color: #000;
+    text-align: center;
+    padding: 80px 0; /* Más aire */
+}
+
+.cta h2 { 
+    font-size: 2.8rem; 
+    margin-bottom: 30px;
+}
+
+/* Botones */
+.btn-dark {
+    background: #000;
+    color: #fff;
+    padding: 15px 40px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.btn-dark:hover {
+    background: #333;
+}
+
+.btn-light {
+    background: #fff;
+    color: #000;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: opacity 0.3s ease;
+}
+
+.btn-light:hover {
+    opacity: 0.8;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.8rem;
+    background-color: #111;
+    border-top: 1px solid #222;
+}
+
+.social-icons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.social-icons a { color: white; text-decoration: none; font-size: 1.2rem;}
+.social-icons a:hover { color: var(--dorado); }
+
+.card-taller-1 { background-image: url('taller\ 1.png'); }
+.card-taller-2 { background-image: url('taller\ 2.png'); }
+.card-taller-3 { background-image: url('taller\ 3.png'); }
+
+/* --- CSS AÑADIDO AL FINAL DE style.css --- */
+
+/* Clase específica para la card de foto en Acerca de Mí */
+.about-photo-card {
+    /* 1. Cargamos la imagen de fondo */
+    background-image: url('logo\ profesional.png'); /* <-- Asegúrate de que este nombre sea correcto */
+    
+    /* 2. Ajustes para que la foto se vea perfecta */
+    background-size: cover;    /* Cubre todo el div sin estirarse */
+    background-position: center; /* Centra la foto (importante si es un retrato) */
+    background-repeat: no-repeat;
+    
+    /* 3. Mantenemos el tamaño y bordes redondos de tu diseño */
+    height: 450px; /* Un poco más alta para que luzca la foto */
+    border-radius: 15px;
+    
+    /* 4. Quitamos el color de fondo azul para que solo se vea la foto */
+    background-color: transparent;
+    
+    /* 5. Quitamos la superposición degradada oscura de las cards generales */
+    box-shadow: none;
+}
+
+
