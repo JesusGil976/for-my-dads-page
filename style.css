@@ -239,57 +239,49 @@ footer {
 
 /* --- RESPONSIVE DESIGN --- */
 
-@media (max-width: 768px) {
-    /* Las secciones que usan grid pasan a tener 1 sola columna */
-    .services {
-        grid-template-columns: 1fr; 
-        padding: 20px 5%; /* Menos espacio lateral en móvil */
-    }
-
-    /* Ajustamos el tamaño de las cards para que no queden gigantes */
-    .card {
-        height: 300px; 
-    }
-}
+/* --- RESPONSIVE FIX --- */
 
 @media (max-width: 768px) {
+    /* 1. Forzamos a que el menú se ponga en vertical y se centre */
+    .navbar {
+        flex-direction: column !important;
+        height: auto !important;
+        padding: 20px 0 !important;
+    }
+
+    .nav-links {
+        flex-direction: row !important; /* Mantenemos fila pero con espacio */
+        flex-wrap: wrap; 
+        justify-content: center !important;
+        gap: 10px !important;
+        margin-top: 15px !important;
+    }
+
+    .nav-links li a {
+        margin: 0 5px !important;
+        font-size: 0.85rem !important;
+        padding: 5px 10px;
+        border: 1px solid rgba(255,255,255,0.2); /* Les da forma de botoncitos */
+        border-radius: 5px;
+    }
+
+    /* 2. Forzamos las columnas a ser de 1 sola fila en móvil */
+    .services, .about-section { 
+        grid-template-columns: 1fr !important; 
+        display: grid !important; 
+        gap: 20px !important;
+        padding: 20px 5% !important;
+    }
+
+    /* 3. Ajuste de Hero para que no se vea gigante */
     .hero {
-        height: 350px;
-        padding-left: 20px; /* Menos margen para aprovechar espacio */
-        justify-content: center; /* Centramos el texto en móvil */
+        height: 300px !important;
+        padding-left: 20px !important;
+        justify-content: center !important;
         text-align: center;
     }
 
     .hero h1 {
-        font-size: 2rem; /* Texto más pequeño para que no se corte */
-    }
-
-    .hero p {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Centramos todo el contenido de la navbar */
-    .navbar {
-        flex-direction: column; 
-        padding: 15px 0;
-        gap: 15px;
-    }
-
-    /* Quitamos el margen izquierdo que tienen los links en PC y les damos aire */
-    .nav-links {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap; /* Por si son muchos, que bajen de línea y no se amontonen */
-        gap: 15px; 
-    }
-
-    .nav-links li a {
-        margin: 0; /* Limpiamos el margin-left de 20px que pusiste en PC */
-        font-size: 1rem; /* Subimos un poco el tamaño para que sea legible */
-        padding: 8px 12px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        font-size: 2rem !important;
     }
 }
