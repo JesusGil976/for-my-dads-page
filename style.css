@@ -237,4 +237,52 @@ footer {
     box-shadow: none;
 }
 
+/* --- RESPONSIVE DESIGN --- */
 
+@media (max-width: 768px) {
+    /* Las secciones que usan grid pasan a tener 1 sola columna */
+    .services {
+        grid-template-columns: 1fr; 
+        padding: 20px 5%; /* Menos espacio lateral en móvil */
+    }
+
+    /* Ajustamos el tamaño de las cards para que no queden gigantes */
+    .card {
+        height: 300px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 350px;
+        padding-left: 20px; /* Menos margen para aprovechar espacio */
+        justify-content: center; /* Centramos el texto en móvil */
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Texto más pequeño para que no se corte */
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Logo arriba, links abajo */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .nav-links {
+        padding: 0;
+        justify-content: center;
+    }
+
+    .nav-links li a {
+        margin: 0 10px;
+        font-size: 0.8rem;
+    }
+}
