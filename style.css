@@ -270,19 +270,26 @@ footer {
 }
 
 @media (max-width: 768px) {
+    /* Centramos todo el contenido de la navbar */
     .navbar {
-        flex-direction: column; /* Logo arriba, links abajo */
+        flex-direction: column; 
+        padding: 15px 0;
         gap: 15px;
-        padding: 15px;
     }
 
+    /* Quitamos el margen izquierdo que tienen los links en PC y les damos aire */
     .nav-links {
-        padding: 0;
+        width: 100%;
         justify-content: center;
+        flex-wrap: wrap; /* Por si son muchos, que bajen de línea y no se amontonen */
+        gap: 15px; 
     }
 
     .nav-links li a {
-        margin: 0 10px;
-        font-size: 0.8rem;
+        margin: 0; /* Limpiamos el margin-left de 20px que pusiste en PC */
+        font-size: 1rem; /* Subimos un poco el tamaño para que sea legible */
+        padding: 8px 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 }
